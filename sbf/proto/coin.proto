@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package coin;
+option go_package = "github.com/samuelmachado/protos/sbf/build/go/coin";
+
+message Coin {
+  string name = 1;
+  float value = 2;
+}
+
+message ValueRequest {
+  string name = 1;
+}
+
+message ValueResponse {
+  Coin coin = 1;
+}
+
+
+service CoinService {
+  rpc GetValue (ValueRequest) returns (ValueResponse);
+}
